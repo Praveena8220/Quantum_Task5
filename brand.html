@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js">
+	</script>
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js">
+	</script>
+
+
+	<style>
+		body {
+			text-align: center;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		h1 {
+			color:palevioletred;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" >
+		<div class="container-fluid">
+		
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" style="color: palevioletred;font-size: 25px;" href="#/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" style="color: palevioletred;font-size: 25px;" href="#/second">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" style="color: palevioletred;font-size: 25px;" href="#/third">Contact</a>
+					</li>
+				</ul>
+				<h1 style="color: palevioletred;font-family: cursive;font-size: 65px;">UNIQUE FLOWERZZ</h1>
+			</div>
+		</div>
+	</nav>
+
+
+	<!--hg-template indicates the pages
+		that get loaded as per requirement-->
+	<script type="text/ng-template" id="first.html">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.header .logo {
+  font-size: 25px;
+  font-family: 'Sriracha', cursive;
+  color: #000;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f5f5f5;
+  margin-right: 20px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #000;
+  padding: 35px 20px;
+}
+
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 520px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://media.istockphoto.com/id/531195010/photo/spring-tulips.jpg?s=612x612&w=0&k=20&c=GYBD7T2FJWfd8piLnHR6zgtI2nIxCW08FZMaK9Y9p5I=");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.intro h1 {
+  font-family: sans-serif;
+  font-size: 60px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.intro p {
+  font-size: 20px;
+  color: #d1d1d1;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+.intro button {
+  background-color: #5edaf0;
+  color: #000;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+}
+
+.achievements {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 80px;
+}
+
+.achievements .work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.achievements .work i {
+  width: fit-content;
+  font-size: 50px;
+  color: #333333;
+  border-radius: 50%;
+  border: 2px solid #333333;
+  padding: 12px;
+}
+
+.achievements .work .work-heading {
+  font-size: 20px;
+  color: #333333;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.achievements .work .work-text {
+  font-size: 15px;
+  color: #585858;
+  margin: 10px 0;
+}
+
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 80px;
+  border-top: 2px solid #eeeeee;
+}
+
+.about-me img {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-me-text h2 {
+  font-size: 30px;
+  color: #333333;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.about-me-text p {
+  font-size: 15px;
+  color: #585858;
+  margin: 10px 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #302f49;
+  padding: 40px 80px;
+}
+
+.footer .copy {
+  color: #fff;
+}
+
+.bottom-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.bottom-links .links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.bottom-links .links span {
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.bottom-links .links a {
+  text-decoration: none;
+  color: #a1a1a1;
+  padding: 10px 20px;
+}
+</style>
+		
+		<main>
+			<div class="intro">
+
+				<h1>Unique FlowerZz</h1>
+				<p>"Happiness held is the seed, happiness shared is the flower."</p>
+				<button>Welcome</button>
+			</div>
+			<div class="achievements">
+				<div class="work">
+					<i class="fas fa-atom"></i>
+					<p class="work-heading">Flowers</p>
+					<p class="work-text">
+						Flowers are a sign of new beginnings. After a cold and snowy winter, the arrival of flowers serves as a message that spring is near—and delightful, warmer weather is ahead!</p>
+				</div>
+				<div class="work">
+					<i class="fas fa-skiing"></i>
+					<p class="work-heading">Sapplings</p>
+					<p class="work-text">The acorn does not know that it will become a sapling. The sapling does not remember when it was an acorn, and only dimly senses that it will become a mighty oak</p>
+				</div>
+				<div class="work">
+					<i class="fas fa-ethernet"></i>
+					<p class="work-heading">Floral Works</p>
+					<p class="work-text">Delivering happiness through flowers! Floral gifting | Decor | Subscriptions ... As we prepare for the upcoming festivities and dress up our homes, we hope you.</p>
+				</div>
+			</div>
+			
+			<div class="about-me">
+				<div class="about-me-text">
+					<h2>We Also Provide</h2>
+					<ul>
+						<li>Flowers</li>
+						<li>Garlands</li>
+						<li>threaded florals</li>
+						<li>plants</li>
+						<li>saplings</li>
+					</ul>
+				</div>
+			
+				<!-- <img src="https://imgs.search.brave.com/giPuio0i3kem1MPlGZYLTCRS_X4oxe2fGmEqjS14VPE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzc1LzAxLzE5/LzM2MF9GXzE3NTAx/MTkwNV9MaHRSWUZQ/UTFRdmpheWY5cEhE/cktwMmdNU29jZFBX/cC5qcGc" alt="me"> -->
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="copy">uniqueflowers@gmail.com</div>
+			<div class="bottom-links">
+				<div class="links">
+					<span>More Info</span>
+					<a href="#">Home</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
+				</div>
+				<div class="links">
+					<span>Social Links</span>
+					<a href="#"><i class="fab fa-facebook"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+				</div>
+			</div>
+		</footer>
+
+
+
+		<h3>{{message}}</h3>
+	</script>
+
+
+	<script type="text/ng-template" id="second.html">
+		
+		<style>
+			body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://imgs.search.brave.com/TZhqTXAQn1p5DzVtUnxPPbox9BcY6PI1_4VG-FScNkg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDQ1MzU2/MzkuanBn");
+  
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+		</style>
+		<div class="about-section">
+			<h1>We Are Here</h1>
+			<p>Unique Flowers & Gift Shop is a local neighborhood florist located in Detroit, Michigan.</p>
+			<p>We are committed to offering only the finest flowers, plants, backed by service that is friendly and prompt.</p>
+			<P>Because all of our customers are important, our professional staff is dedicated to making your experience a pleasant one.</P>
+		</div>
+		
+		<h2 style="text-align:center">Our Team</h2>
+		<div class="row">
+			<div class="column">
+				<div class="card">
+					<div class="container">
+						<h2>Jane Doe</h2>
+						<p class="title">Floral Designer</p>
+						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
+						<p>jane@example.com</p>
+						<p><button class="button">Contact</button></p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="column">
+				<div class="card">
+					<div class="container">
+						<h2>Mike Ross</h2>
+						<p class="title">Art Director</p>
+						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
+						<p>mike@example.com</p>
+						<p><button class="button">Contact</button></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="column">
+				<div class="card">
+					<div class="container">
+						<h2>John Doe</h2>
+						<p class="title">Designer</p>
+						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
+						<p>john@example.com</p>
+						<p><button class="button">Contact</button></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<h3>{{message}}</h3>
+	</script>
+
+
+	<script type="text/ng-template" id="third.html">
+		
+		<link rel="stylesheet" href="CSS/contact.css">
+		<div class="container">
+			<div style="text-align:center">
+				<h2>Contact Us</h2>
+				<p>Swing by for a cup of coffee, or leave us a message:</p>
+			</div>
+			<div class="row">
+				<div class="column">
+					<img src="map.jpg" style="width:100%">
+				</div>
+				<div class="column">
+					<form action="/action_page.php">
+						<label for="fname">First Name</label>
+						<input type="text" id="fname" name="firstname" placeholder="Your name..">
+						<label for="lname">Last Name</label>
+						<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+						<label for="country">Place</label>
+						<select id="country" name="country">
+							<option value="australia">Chennai</option>
+							<option value="canada">Coimbatore</option>
+							<option value="usa">Banglore</option>
+						</select>
+						<label for="subject">Subject</label>
+						<textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+		</div>
+		
+
+		<h3>{{message}}</h3>
+	</script>
+
+	<!-- Hyperlinks to load different
+		pages dynamically -->
+	
+
+	<!--ng-view includes the rendered template of
+		the current route into the main page-->
+	<div ng-view></div>
+
+	<script>
+		var app = angular.module('myApp', []);
+		var app = angular.module('myApp', ['ngRoute']);
+		app.config(function ($routeProvider) {
+			$routeProvider
+				.when('/', {
+					templateUrl: 'first.html',
+					controller: 'FirstController'
+				})
+
+				.when('/second', {
+					templateUrl: 'second.html',
+					controller: 'SecondController'
+				})
+
+				.when('/third', {
+					templateUrl: 'third.html',
+					controller: 'ThirdController'
+				})
+
+				.otherwise({ redirectTo: '/' });
+		});
+
+		// Controller is a JS function that maintains
+		// application data and behavior using $scope object
+		// properties and methods can be attached to the
+		// $scope object inside a controller function
+
+		app.controller('FirstController', function ($scope) {
+			$scope.message = 'Great Hello to all';
+		});
+		app.controller('SecondController', function ($scope) {
+			$scope.message = 'This is about Us';
+		});
+		app.controller('ThirdController', function ($scope) {
+			$scope.message = 'Any queries, Contact Us';
+		});
+	</script>
+</body>
+
+</html>
